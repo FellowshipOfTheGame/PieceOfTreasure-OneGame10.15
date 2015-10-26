@@ -31,7 +31,6 @@ public class GridEntity_BHV : MonoBehaviour {
         gridPosition = initialGridPosition;
         lookDirection = inicialLookDirection;
         transform.position = new Vector3(gridPosition.x,gridPosition.y,locationDepth);
-        gameObject.
     }
 
 }
