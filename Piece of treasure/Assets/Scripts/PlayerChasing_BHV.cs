@@ -34,7 +34,6 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
 
     private void Chase() {
         Direction dir;
-        //set dir from positions diference...
         Vector2 v = playerTarget.GridPosition - this.gridPosition;
         if (v.x > 0) { dir = Direction.RIGHT; }
         else if (v.x < 0) { dir = Direction.LEFT; }

@@ -72,6 +72,4 @@ public class GridNavigator_BHV : GridEntity_BHV {
         }
         return false;
     }
-
-
 }
