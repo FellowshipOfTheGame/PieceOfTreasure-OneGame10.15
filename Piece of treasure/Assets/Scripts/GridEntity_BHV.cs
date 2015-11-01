@@ -10,9 +10,10 @@ public class GridEntity_BHV : MonoBehaviour {
         DOWN = 8
     }
 
-    //protected GameMapController gridMapReference;
+    protected GameMapController gridMapReference;
 
     public Vector2 initialGridPosition = new Vector2(0, 0);
+	[SerializeField]
     protected Vector2 gridPosition;
     public Vector2 GridPosition {
         get {
@@ -21,16 +22,21 @@ public class GridEntity_BHV : MonoBehaviour {
     }
 
     public Direction inicialLookDirection;
+	[SerializeField]
     protected Direction lookDirection;
 
     public float locationDepth = 0.5f;
     public bool isCollider;
 
-    void Start() {
-        //gridMapReference = GameObject.FindObjectOfType<GameMapController>();
-        gridPosition = initialGridPosition;
-        lookDirection = inicialLookDirection;
+
+    protected virtual void Start() {
+        gridMapReference = GameObject.FindObjectOfType<GameMapController>();
+		lookDirection = inicialLookDirection;
+//		  gridPosition = initialGridPosition;
+		gridPosition = new Vector2((int)transform.position.x, (int)transform.position.y); //troquei a linha de cima por esta
         transform.position = new Vector3(gridPosition.x,gridPosition.y,locationDepth);
+
     }
+
 
 }

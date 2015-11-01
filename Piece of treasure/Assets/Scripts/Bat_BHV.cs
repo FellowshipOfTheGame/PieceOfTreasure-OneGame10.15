@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bat_BHV : PlayerChasing_BHV {
 
-    void Update() {
+    protected override void Update() {
         bool loopFlag = true;
         while (loopFlag){
             int randomNumber = Random.Range(1, 4);

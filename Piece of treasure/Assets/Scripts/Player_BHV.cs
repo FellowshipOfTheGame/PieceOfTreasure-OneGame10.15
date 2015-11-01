@@ -5,7 +5,8 @@ public class Player_BHV : GridNavigator_BHV {
 
     public float movementThreshold = 0.8f;
 	
-	void Update () {
+	protected override void Update () {
+		base.Update ();
         /*
          * Player Movement Handling:
          */

@@ -9,7 +9,7 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
     private float stateTimer = 0f;
     protected Player_BHV playerTarget;
 
-    void Update() {
+	protected override void Update() {
         if (stateTimer > 0) {
             stateTimer -= Time.deltaTime;
             if (stateTimer <= 0) {
