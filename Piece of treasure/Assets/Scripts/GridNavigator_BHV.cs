@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class GridNavigator_BHV : GridEntity_BHV {
-
+	[SerializeField]
     private Vector2 gridDestPosition;
     public float navigationSpeed = 1f; //tiles per second
 
     private Animator animatorReference;
 
+	[SerializeField]
     protected bool isCurrentlyMoving;
+	[SerializeField]
     private float movementProgression;
 
     public float stepDelay; //seconds
@@ -18,12 +20,13 @@ public class GridNavigator_BHV : GridEntity_BHV {
     public bool swimming;
     public bool walking;
 
-	void Start () {
+	protected override void Start () {
+		base.Start ();
         animatorReference = GetComponent<Animator>();
         isCurrentlyMoving = false;
 	}
 
-    void Update() {
+    protected virtual void Update() {
         if (isCurrentlyMoving) {
             movementProgression += navigationSpeed / 60;
             if (movementProgression >= 1) {
@@ -56,7 +59,7 @@ public class GridNavigator_BHV : GridEntity_BHV {
     public bool MoveDirection(Direction direction){
         if (!isCurrentlyMoving) { //Doesn't accept movement commands while moving
             if (stepDelayCounter <= 0) {
-                if(true/*gridMapReference.CanMove(gridPosition, direction)*/){ //Checking map collision
+				if(gridMapReference.CanMove(this, gridPosition + new Vector2(((((int)direction)%6)/2)-1 , 1-((int)(((int)direction)/4))) )/*true/*gridMapReference.CanMove(gridPosition, direction)*/){ //Checking map collision
                     //Sets the movement
                     isCurrentlyMoving = true;
                     movementProgression = 0;

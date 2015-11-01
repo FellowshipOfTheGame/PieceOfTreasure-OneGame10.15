@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Skeleton_BHV : PlayerChasing_BHV {
 
-    void Update() {
+    protected override void Update() {
         if (!isChasingPlayer) {
             bool canMove = true/*gridMapReference.CanMoveTo(this,lookDirection)*/;
             if (canMove) {
