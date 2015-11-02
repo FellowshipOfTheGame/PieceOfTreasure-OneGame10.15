@@ -13,7 +13,6 @@ public class GridEntity_BHV : MonoBehaviour {
     protected GameMapController gridMapReference;
 
     public Vector2 initialGridPosition = new Vector2(0, 0);
-	[SerializeField]
     protected Vector2 gridPosition;
     public Vector2 GridPosition {
         get {
@@ -22,7 +21,6 @@ public class GridEntity_BHV : MonoBehaviour {
     }
 
     public Direction inicialLookDirection;
-	[SerializeField]
     protected Direction lookDirection;
 
     public float locationDepth = 0.5f;
@@ -34,7 +32,7 @@ public class GridEntity_BHV : MonoBehaviour {
 		lookDirection = inicialLookDirection;
 //		  gridPosition = initialGridPosition;
 		gridPosition = new Vector2((int)transform.position.x, (int)transform.position.y); //troquei a linha de cima por esta
-        transform.position = new Vector3(gridPosition.x,gridPosition.y,locationDepth);
+        transform.position = new Vector3(gridPosition.x,gridPosition.y,-locationDepth);
 
     }
 

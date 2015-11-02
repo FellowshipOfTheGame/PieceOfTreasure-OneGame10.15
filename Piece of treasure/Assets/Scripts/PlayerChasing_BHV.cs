@@ -9,7 +9,8 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
     private float stateTimer = 0f;
     protected Player_BHV playerTarget;
 
-	protected override void Update() {
+    protected override void Update() {
+        base.Update();
         if (stateTimer > 0) {
             stateTimer -= Time.deltaTime;
             if (stateTimer <= 0) {
@@ -38,7 +39,7 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
         if (v.x > 0) { dir = Direction.RIGHT; }
         else if (v.x < 0) { dir = Direction.LEFT; }
         else if(v.y > 0) { dir = Direction.UP; }
-        else if (v.x < 0) { dir = Direction.DOWN; }
+        else if (v.y < 0) { dir = Direction.DOWN; }
         else { return; }
         MoveDirection(dir);
     }
@@ -63,6 +64,29 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
                 return p;
             }
             */
+            Vector2 targetPosition = p.GridPosition;
+            switch (lookDirection) {
+                case Direction.DOWN:
+                    if ((targetPosition.x == this.gridPosition.x) && (targetPosition.y < this.gridPosition.y)) {
+                        return p;
+                    }
+                    break;
+                case Direction.UP:
+                    if ((targetPosition.x == this.gridPosition.x) && (targetPosition.y > this.gridPosition.y)) {
+                        return p;
+                    }
+                    break;
+                case Direction.RIGHT:
+                    if ((targetPosition.x > this.gridPosition.x) && (targetPosition.y == this.gridPosition.y)) {
+                        return p;
+                    }
+                    break;
+                case Direction.LEFT:
+                    if ((targetPosition.x < this.gridPosition.x) && (targetPosition.y == this.gridPosition.y)) {
+                        return p;
+                    }
+                    break;
+            }
         }
         return null;
     }

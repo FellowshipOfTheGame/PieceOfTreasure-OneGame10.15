@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: 1c10930cb074b6c4b96387cf46c762e0
-timeCreated: 1446390507
+guid: e67db9ae1be4bc5429e524ed39d8f33f
+timeCreated: 1446423550
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walk.side.right1_1
-    21300002: walk.side.right1_0
+    21300000: bat_0
+    21300002: bat_1
+    21300004: bat_2
+    21300006: bat_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +54,27 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: walk.side.right1_1
+    - name: bat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bat_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bat_2
       rect:
         serializedVersion: 2
         x: 0
@@ -60,9 +82,9 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: walk.side.right1_0
+    - name: bat_3
       rect:
         serializedVersion: 2
         x: 32
@@ -70,7 +92,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
