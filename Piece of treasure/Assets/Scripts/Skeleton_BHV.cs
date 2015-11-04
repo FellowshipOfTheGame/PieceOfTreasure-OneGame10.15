@@ -7,10 +7,10 @@ public class Skeleton_BHV : PlayerChasing_BHV {
         if (!isChasingPlayer) {
             bool canMove = true/*gridMapReference.CanMoveTo(this,lookDirection)*/;
             if (canMove) {
-                MoveDirection(lookDirection);
+                MoveDirection(LookDirection);
             }
             else {
-                lookDirection = (Direction)  (10 - (int)lookDirection);
+                LookDirection = (Direction)  (10 - (int)LookDirection);
             }
         }
     }

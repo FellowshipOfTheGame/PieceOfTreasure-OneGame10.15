@@ -12,41 +12,43 @@ public class Player_BHV : GridNavigator_BHV {
          */
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+        float inputIntensity = 0f;
+        Direction inputDirection = Direction.RIGHT;
 
-
-        //Looks to input direction
+        //Define input direction and input intensity from vertical and horizontal input axis
         if (Mathf.Abs(horizontalInput) >= Mathf.Abs(verticalInput)) {
             if (horizontalInput > 0) {
-                lookDirection = Direction.RIGHT;
+                inputDirection = Direction.RIGHT;
+                inputIntensity = Mathf.Abs(horizontalInput);
             }
             else if (horizontalInput < 0) {
-                lookDirection = Direction.LEFT;
+                inputDirection = Direction.LEFT;
+                inputIntensity = Mathf.Abs(horizontalInput);
             }
         }
         else {
             if (verticalInput > 0) {
-                lookDirection = Direction.UP;
+                inputDirection = Direction.UP;
+                inputIntensity = Mathf.Abs(verticalInput);
             }
             else if (verticalInput < 0) {
-                lookDirection = Direction.DOWN;
+                inputDirection = Direction.DOWN;
+                inputIntensity = Mathf.Abs(verticalInput);
             }
         }
+
 
 
         //Moves to input Direction
-        if (horizontalInput >= movementThreshold) {
-            MoveDirection(Direction.RIGHT);
-        }
-        else if (horizontalInput <= -movementThreshold) {
-            MoveDirection(Direction.LEFT);
+        if (inputIntensity >= movementThreshold) {
+            MoveDirection(inputDirection);
         }
 
-        if (verticalInput >= movementThreshold) {
-            MoveDirection(Direction.UP);
+        //Looks to input direction
+        if ((inputIntensity > 0) && (!isCurrentlyMoving)) {
+            LookDirection = inputDirection;
         }
-        else if (verticalInput <= -movementThreshold) {
-            MoveDirection(Direction.DOWN);
-        }
+
 
         /*
          * Any other stuff a player does:

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 1c10930cb074b6c4b96387cf46c762e0
-timeCreated: 1446390507
+guid: 96c340726d8714b469f64fb3009229a6
+timeCreated: 1446652042
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: walk.side.right1_1
-    21300002: walk.side.right1_0
+    21300000: walk.side.right1_0
+    21300002: walk.side.right1_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: walk.side.right1_1
+    - name: walk.side.right1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -62,7 +62,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: walk.side.right1_0
+    - name: walk.side.right1_1
       rect:
         serializedVersion: 2
         x: 32

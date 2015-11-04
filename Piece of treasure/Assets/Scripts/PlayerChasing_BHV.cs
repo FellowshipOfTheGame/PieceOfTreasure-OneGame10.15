@@ -65,7 +65,7 @@ public class PlayerChasing_BHV : GridNavigator_BHV {
             }
             */
             Vector2 targetPosition = p.GridPosition;
-            switch (lookDirection) {
+            switch (LookDirection) {
                 case Direction.DOWN:
                     if ((targetPosition.x == this.gridPosition.x) && (targetPosition.y < this.gridPosition.y)) {
                         return p;

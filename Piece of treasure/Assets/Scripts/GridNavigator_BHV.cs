@@ -5,8 +5,6 @@ public class GridNavigator_BHV : GridEntity_BHV {
     private Vector2 gridDestPosition;
     public float navigationSpeed = 1f; //tiles per second
 
-    private Animator animatorReference;
-
     protected bool isCurrentlyMoving;
     private float movementProgression;
 
@@ -32,7 +30,7 @@ public class GridNavigator_BHV : GridEntity_BHV {
                 stepDelayCounter = stepDelay;
                 gridPosition = gridDestPosition;
                 //Stop Walk Animation
-                //...
+                AnimateStopWalking();
                 /*
                 GridEntity_BHV gridCollider = gridMapReference.CheckCollision(this);
                 if(gridCollider != null){
@@ -49,21 +47,22 @@ public class GridNavigator_BHV : GridEntity_BHV {
 
     protected void ColisionResult(GridEntity_BHV gridCollider) {
         Direction dir;
-        dir = (Direction)(10 - ((int)lookDirection)); 
+        dir = (Direction)(10 - ((int)LookDirection)); 
         MoveDirection(dir);
     }
 	
     public bool MoveDirection(Direction direction){
         if (!isCurrentlyMoving) { //Doesn't accept movement commands while moving
             if (stepDelayCounter <= 0) {
-                Vector2 destination = gridPosition + new Vector2(((((int)direction)%6)/2)-1 , 1-((int)(((int)direction)/4)));
-                if (gridMapReference.CanMove(this, destination)/*gridMapReference.CanMove(gridPosition, direction)*/) { //Checking map collision
+                Vector2 destination = gridPosition + ToVector2(direction);
+                if (gridMapReference.CanMove(this, destination)) { //Checking map collision
                     //Sets the movement
                     isCurrentlyMoving = true;
                     movementProgression = 0;
                     gridDestPosition = destination;
-                    lookDirection = direction;
+                    LookDirection = direction;
                     //Start Walking Animation
+                    AnimateStartWalking();
                     return true;
                 }
             }
@@ -72,5 +71,16 @@ public class GridNavigator_BHV : GridEntity_BHV {
             }
         }
         return false;
+    }
+
+    protected virtual void AnimateStartWalking() {
+        if (animatorReference != null) {
+            animatorReference.SetBool("Walking", true);
+        }
+    }
+    protected virtual void AnimateStopWalking() {
+        if (animatorReference != null) {
+            animatorReference.SetBool("Walking", false);
+        }
     }
 }
